@@ -1,0 +1,208 @@
+// This is the code for CLANCY.
+
+// Motor Pins
+const int motor1F = 3;
+const int motor1B = 2;
+
+const int motor3F = 4;
+const int motor3B = 5;
+
+const int motor2F = 11;
+const int motor2B = 10;
+
+const int motor4F = 8;
+const int motor4B = 9;
+
+const int ledL = 6;
+const int ledR = 7;
+
+char Incoming_value = 0;
+
+int time = 0;
+
+void setup() {
+  // Initialize motors
+  pinMode(motor1F, OUTPUT);
+  pinMode(motor1B, OUTPUT);
+  
+  pinMode(motor2F, OUTPUT);
+  pinMode(motor2B, OUTPUT);
+  
+  pinMode(motor3F, OUTPUT);
+  pinMode(motor3B, OUTPUT);
+  
+  pinMode(motor4F, OUTPUT);
+  pinMode(motor4B, OUTPUT);
+  
+  pinMode(ledL, OUTPUT);
+  pinMode(ledR, OUTPUT);
+
+  Serial.begin(9600);
+
+
+}
+
+void loop() {
+  // Placeholder for control logic
+  if (Serial.available()>0)
+  {
+    Incoming_value = Serial.read();
+    Serial.print(Incoming_value);
+    Serial.print("forward");
+    if (Incoming_value == '1')
+      forward(10);
+      else if(Incoming_value == '2')
+      right(10);
+      else if(Incoming_value == '3')
+      backward(10);
+      else if(Incoming_value == '4')
+      left(10);
+      else if(Incoming_value == '5')
+      turnleft(10);
+      else if(Incoming_value == '6')
+      turnright(10);
+      else
+      stop(10);
+  }
+}
+
+// Motor control functions
+void forward(int time) {
+  digitalWrite(motor1F, 1);
+  digitalWrite(motor1B, 0);
+
+  digitalWrite(motor2F, 0);
+  digitalWrite(motor2B, 1);
+  
+  digitalWrite(motor3F, 0);
+  digitalWrite(motor3B, 1);
+  
+  digitalWrite(motor4F, 1);
+  digitalWrite(motor4B, 0);
+  
+  digitalWrite(ledL, 1);
+  digitalWrite(ledR, 1);
+
+  delay(time);
+
+  
+}
+
+void backward(int time) {
+  digitalWrite(motor1F, 0);
+  digitalWrite(motor1B, 1);
+  
+  digitalWrite(motor2F, 1);
+  digitalWrite(motor2B, 0);
+  
+  digitalWrite(motor3F, 1);
+  digitalWrite(motor3B, 0);
+  
+  digitalWrite(motor4F, 0);
+  digitalWrite(motor4B, 1);
+  
+  digitalWrite(ledL, 1);
+  digitalWrite(ledR, 1);
+
+  delay(time);
+
+}
+
+void left(int time) {
+  digitalWrite(motor1F, 1);
+  digitalWrite(motor1B, 0);
+  
+  digitalWrite(motor2F, 1);
+  digitalWrite(motor2B, 0);
+  
+  digitalWrite(motor3F, 1);
+  digitalWrite(motor3B, 0);
+  
+  digitalWrite(motor4F, 1);
+  digitalWrite(motor4B, 0);
+  
+  digitalWrite(ledL, 1);
+  digitalWrite(ledR, 0);
+
+  delay(time);
+}
+
+void right(int time) {
+  digitalWrite(motor1F, 0);
+  digitalWrite(motor1B, 1);
+  
+  digitalWrite(motor2F, 0);
+  digitalWrite(motor2B, 1);
+  
+  digitalWrite(motor3F, 0);
+  digitalWrite(motor3B, 1);
+  
+  digitalWrite(motor4F, 0);
+  digitalWrite(motor4B, 1);
+  
+  digitalWrite(ledL, 0);  
+  digitalWrite(ledR, 1);
+
+  delay(time);
+  
+}
+
+void turnright(int time) {
+  digitalWrite(motor1F, 1);
+  digitalWrite(motor1B, 0);
+  
+  digitalWrite(motor2F, 0);
+  digitalWrite(motor2B, 1);
+  
+  digitalWrite(motor3F, 1);
+  digitalWrite(motor3B, 0);
+  
+  digitalWrite(motor4F, 0);
+  digitalWrite(motor4B, 1);
+  
+  digitalWrite(ledL, 0);  
+  digitalWrite(ledR, 1);
+
+  delay(time);
+  
+}
+
+void turnleft(int time) {
+  digitalWrite(motor1F, 0);
+  digitalWrite(motor1B, 1);
+  
+  digitalWrite(motor2F, 1);
+  digitalWrite(motor2B, 0);
+  
+  digitalWrite(motor3F, 0);
+  digitalWrite(motor3B, 1);
+  
+  digitalWrite(motor4F, 1);
+  digitalWrite(motor4B, 0);
+  
+  digitalWrite(ledL, 0);  
+  digitalWrite(ledR, 1);
+
+  delay(time);
+  
+}
+
+void stop(int time) {
+  digitalWrite(motor1F, 0);
+  digitalWrite(motor1B, 0);
+  
+  digitalWrite(motor2F, 0);
+  digitalWrite(motor2B, 0);
+  
+  digitalWrite(motor3F, 0);
+  digitalWrite(motor3B, 0);
+  
+  digitalWrite(motor4F, 0);
+  digitalWrite(motor4B, 0);
+  
+  digitalWrite(ledL, 0);
+  digitalWrite(ledR, 0);
+
+  delay(time);
+
+}
