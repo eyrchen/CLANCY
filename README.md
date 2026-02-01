@@ -1,4 +1,4 @@
-These is the project files for Clancy, the 2nd generation Arduino-based robot kit designed for beginners with no expereince in Ardiuno robotics.
+These are the project files for Clancy, the 2nd generation of my Arduino-based robot kit designed for beginners with no prior experience with Arduino robotics.
 
 Inside this repository, there are three main components:
 1. Instruction booklet for assembly and operation of the assembled robot
