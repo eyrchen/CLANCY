@@ -1,0 +1,9 @@
+There are 6 STL files to print
+
+For each complete chassis, you need to print:
+1 clancy_base.stl
+1 clancy_top.stl
+2 clancy_sides.stl
+2 clancy_claw1.stl
+2 clancy_claw2.stl
+2 clancy_claw3.stl
